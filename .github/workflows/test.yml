@@ -9,6 +9,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest  # 🖥️ Use the latest Ubuntu runner
+    env:
+      GRAPH_DB_TYPE: ${{ secrets.GRAPH_DB_TYPE }}
+      LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
+      DEEPSEEK_API_KEY: ${{ secrets.LLM_PROVIDER }}
+      NEO4J_URI: ${{ secrets.LLM_PROVIDER }}
+      NEO4J_USER: ${{ secrets.LLM_PROVIDER }}
+      NEO4J_PASSWORD: ${{ secrets.LLM_PROVIDER }}
+
 
     steps:
       - name: 📥 Checkout repository
