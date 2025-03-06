@@ -1,0 +1,32 @@
+name: Run Tests  # 🏆 Name of the GitHub Actions workflow
+
+on:
+  push:  # 🚀 Run tests on every push
+    branches:
+      - main  # 🔥 Replace with your main branch name if different
+  pull_request:  # 🚀 Run tests on pull requests
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # 🖥️ Use the latest Ubuntu runner
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3  # Fetches your code
+
+      - name: 🐍 Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🧪 Run Tests
+        run: |
+          source venv/bin/activate
+          pytest tests/ -v
