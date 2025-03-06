@@ -1,12 +1,9 @@
 import json
 import pytest
-import sys
-import os
 from unittest.mock import patch, MagicMock
 from time import sleep
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+# Use absolute import from `src`
 from src.llm_client import LLMClient
 
 @pytest.fixture

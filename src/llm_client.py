@@ -1,27 +1,22 @@
 import json
 import requests
-import sys
-import os
-
-# Import global config
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import config
+from config import LLM_PROVIDER, OPENAI_API_KEY, DEEPSEEK_API_KEY, CLAUDE_API_KEY
 
 class LLMClient:
     """Unified interface for multiple LLM providers (DeepSeek, OpenAI, Claude)."""
 
     def __init__(self):
-        self.provider = config.LLM_PROVIDER.lower()
+        self.provider = LLM_PROVIDER.lower()
         self.api_key = self._get_api_key()
 
     def _get_api_key(self):
         """Retrieve API key based on selected LLM provider."""
         if self.provider == "deepseek":
-            return config.DEEPSEEK_API_KEY
+            return DEEPSEEK_API_KEY
         elif self.provider == "openai":
-            return config.OPENAI_API_KEY
+            return OPENAI_API_KEY
         elif self.provider == "anthropic":
-            return config.CLAUDE_API_KEY
+            return CLAUDE_API_KEY
         else:
             raise ValueError(f"❌ Unsupported LLM provider: {self.provider}")
 
@@ -40,7 +35,7 @@ class LLMClient:
         """Call DeepSeek API."""
         url = "https://api.deepseek.com/v1/chat/completions"
         payload = {
-            "model": "deepseek-chat",  # Can switch to "deepseek-reasoner"
+            "model": "deepseek-chat",
             "messages": [
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": user_message},
