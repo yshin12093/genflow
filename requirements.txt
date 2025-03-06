@@ -1,2 +1,5 @@
 openai
 neo4j
+requests 
+python-dotenv  
+pytest  
