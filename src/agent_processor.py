@@ -11,7 +11,7 @@ sys.path.append(PROJECT_ROOT)
 from src.graph_client import graph_client
 from src.llm_client import llm_client
 
-def get_agent_messages(node_id):
+def get_agent_messages(node_id: str) -> list[dict]:
     """Fetch agent's messages from the graph database."""
     query = """
     MATCH (a:Agent) 
@@ -20,7 +20,7 @@ def get_agent_messages(node_id):
     """
     return graph_client.execute_query(query, {"node_id": node_id})
 
-def get_next_agent(node_id):
+def get_next_agent(node_id: str) -> list[dict]:
     """Find the next agent in sequence."""
     query = """
     MATCH (a:Agent)-[:NEXT_AGENT]->(next:Agent)
@@ -29,7 +29,7 @@ def get_next_agent(node_id):
     """
     return graph_client.execute_query(query, {"node_id": node_id})
 
-def process_agent(node_id, prev_response=""):
+def process_agent(node_id: str, prev_response: str = "") -> str:
     """Recursive function to process agents."""
     
     agent_data = get_agent_messages(node_id)
