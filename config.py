@@ -15,3 +15,7 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER")  # deepseek, openai, anthropic
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
+
+# ✅ Prevent application from running if required values are missing
+if not NEO4J_URI:
+    raise ValueError("❌ ERROR: NEO4J_URI is empty! Check your environment variables.")
