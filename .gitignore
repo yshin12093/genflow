@@ -1,6 +1,10 @@
 # Exclude vscode settings
 .vscode/
 
+# Exclude management files
+management.ipynb
+project_metadata.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
