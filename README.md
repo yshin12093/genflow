@@ -115,7 +115,7 @@ Here's a real example of a three-agent workflow for mental health assessment:
 
 ### Workflow Visualization
 
-![Three Agent Workflow](docs/images/three-agent-example.png)
+![Three Agent Workflow](assets/images/three-agent-example.png)
 
 ### Agent Configuration
 
