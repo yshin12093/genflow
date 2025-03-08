@@ -55,10 +55,6 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 Here's an example of a three-agent workflow for medical accuracy assessment:
 
-### Workflow Visualization
-
-![Three Agent Workflow](/assets/images/three-agent-example.png)
-
 ### Agent Workflow Configuration (neo4j)
 
 ```cypher
@@ -81,7 +77,11 @@ CREATE (a1)-[:NEXT_AGENT]->(a2)
 CREATE (a2)-[:NEXT_AGENT]->(a3)
 ```
 
-### Agent Interactions
+### Workflow Visualization
+
+![Three Agent Workflow](/assets/images/three-agent-example.png)
+
+### Agent Outputs
 
 #### 1. Psychiatrist's Explanation
 ```
