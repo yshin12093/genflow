@@ -59,7 +59,7 @@ Here's an example of a three-agent workflow for medical accuracy assessment:
 
 ![Three Agent Workflow](/assets/images/three-agent-example.png)
 
-### Agent Configuration
+### Agent Configuration (neo4j)
 
 ```cypher
 CREATE (a1:Agent {
