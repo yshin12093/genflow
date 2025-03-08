@@ -53,6 +53,12 @@ GenFlow is a proof-of-concept project that combines the power of graph databases
 - **Easy Debugging**: Trace agent interactions through the graph structure
 - **Collaborative Development**: Multiple teams can work on different parts of the workflow
 
+## Future Work
+- **Enhanced Tool Utilization**: Expanding agent capabilities by integrating with **S3, SNS, SQS, Knowledge Base (RAG)**, and other AWS services for more **dynamic and intelligent workflows**.
+- **Context & Memory Optimization**: Implementing **efficient state management** techniques to improve **long-term context retention** across workflows.
+- **Parallel & Hierarchical Processing**: Introducing **multi-level execution strategies** where agents operate in **parallel or hierarchical configurations**, optimizing performance for **large-scale workflows**.
+- **Automated Graph Updates**: Further exploration into **LLM-driven workflow optimization**, including **real-time agent orchestration** and **automated relationship modifications**.
+
 ## Example: Multi-Agent Medical Accuracy Assessment
 
 Here's an example of a three-agent workflow for medical accuracy assessment:
