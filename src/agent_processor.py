@@ -44,8 +44,14 @@ def process_agent(node_id: str, prev_response: str = "") -> str:
     full_message = user_message + " " + prev_response
 
     response_dict = llm_client.call_llm(system_message, full_message)
+    
+    # Check if there's an error in the response
+    if "error" in response_dict:
+        error_msg = f"LLM API Error: {response_dict.get('error')}"
+        logger.error(f"❌ {error_msg}")
+        return f"Error processing agent: {error_msg}"
+    
     response = response_dict.get("response", "No response found")
-
     logger.info(f"✅ Agent (ID {node_id}) Response: {response}")
 
     next_agent_data = get_next_agent(node_id)

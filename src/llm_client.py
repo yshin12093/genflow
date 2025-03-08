@@ -45,8 +45,14 @@ class LLMClient:
         }
         headers = {"Authorization": f"Bearer {self.api_key}"}
 
-        response = requests.post(url, json=payload, headers=headers)
-        return self._format_response(response)
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            return self._format_response(response)
+        except Exception as e:
+            return {
+                "statusCode": 500,
+                "error": f"Network error: {str(e)}"
+            }
 
     def _call_openai(self, system_message: str, user_message: str) -> dict:
         """Call OpenAI API."""
@@ -60,8 +66,14 @@ class LLMClient:
         }
         headers = {"Authorization": f"Bearer {self.api_key}"}
 
-        response = requests.post(url, json=payload, headers=headers)
-        return self._format_response(response)
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            return self._format_response(response)
+        except Exception as e:
+            return {
+                "statusCode": 500,
+                "error": f"Network error: {str(e)}"
+            }
 
     def _call_claude(self, system_message: str, user_message: str) -> dict:
         """Call Claude API (Anthropic)."""
@@ -75,8 +87,14 @@ class LLMClient:
         }
         headers = {"Authorization": f"Bearer {self.api_key}"}
 
-        response = requests.post(url, json=payload, headers=headers)
-        return self._format_response(response)
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            return self._format_response(response)
+        except Exception as e:
+            return {
+                "statusCode": 500,
+                "error": f"Network error: {str(e)}"
+            }
 
     def _format_response(self, response: requests.Response) -> dict:
         """Format the API response."""
