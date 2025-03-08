@@ -2,7 +2,7 @@
 
 GenFlow is an innovative pilot project that combines the power of graph databases (Neo4j) with serverless computing (AWS Lambda) and workflow orchestration (AWS Step Functions) to create scalable and adaptive multi-agent LLM workflows.
 
-## 🌟 Key Features
+## Key Features
 
 ### Graph-Based Agent Architecture
 - **Dynamic Agent Relationships**: Agents and their relationships are stored in Neo4j, enabling complex, flexible workflows
@@ -30,7 +30,7 @@ GenFlow is an innovative pilot project that combines the power of graph database
 - **Flexible Routing**: Change agent interaction patterns by updating graph relationships
 - **Version Control**: Track workflow evolution through graph versioning
 
-## 💡 Benefits
+## Benefits
 
 ### Technical Benefits
 - **Separation of Concerns**: Clear separation between workflow logic, agent behavior, and infrastructure
@@ -53,7 +53,7 @@ GenFlow is an innovative pilot project that combines the power of graph database
 - **Easy Debugging**: Trace agent interactions through the graph structure
 - **Collaborative Development**: Multiple teams can work on different parts of the workflow
 
-## 🎯 Example: Multi-Agent Medical Accuracy Assessment
+## Example: Multi-Agent Medical Accuracy Assessment
 
 Here's an example of a three-agent workflow for medical accuracy assessment:
 
@@ -264,7 +264,7 @@ The accuracy checker's feedback is **excellent** in terms of validity, relevance
 If further refinement is desired, the feedback could incorporate the suggested improvements to address a broader range of perspectives and considerations related to bipolar disorder.
 ```
 
-## 🚀 Use Cases
+## Use Cases
 
 1. **Healthcare and Medical**
    - Multi-specialist diagnosis and consultation
@@ -337,7 +337,7 @@ If further refinement is desired, the feedback could incorporate the suggested i
    - Agent behavior learning
    - Performance prediction
 
-## 🛠️ Getting Started
+## Getting Started
 
 1. **Prerequisites**
    - AWS Account with appropriate permissions
@@ -360,6 +360,6 @@ If further refinement is desired, the feedback could incorporate the suggested i
    - Deploy Lambda functions
    - Start Step Functions execution
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
