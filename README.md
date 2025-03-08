@@ -18,7 +18,7 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 ### Flexible Orchestration
 - **AWS Step Functions**: Reliable workflow orchestration with built-in error handling and retries
-- **Simplified Workflow Engine**: Step Functions provides a simple, recursive workflow engine applicable to complex workflows. It processes one agent, passes the output to the next agent along the graph, and repeats the process recursively.
+- **Simplified Workflow Engine**: Step Functions provides a simple, recursive workflow engine applicable to complex workflows (it processes one agent, passes the output to the next agent along the graph, and repeats the process recursively)
 - **Parallel Execution**: Support for parallel agent execution using Step Functions' Map state
 - **State Management**: Built-in state tracking and execution history
 - **Long-Running Workflows**: Handle workflows of any duration with Step Functions' 1-year execution limit
