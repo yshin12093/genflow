@@ -27,12 +27,12 @@ def lambda_handler(event, context):
                 user_message: "Explain Amoxicillin."
             })
             CREATE (a2:Agent {
-                system_message: "You are a critic.",
-                user_message: "Criticize the explanation."
+                system_message: "You are an accuracy checker.",
+                user_message: "Verify the correctness of the pharmacist's explanation."
             })
             CREATE (a3:Agent {
-                system_message: "You are a patient.",
-                user_message: "Ask questions about the critic."
+                system_message: "You are an evaluator.",
+                user_message: "Assess the accuracy checker's feedback and determine its validity and relevance."
             })
             
             // Create relationships
