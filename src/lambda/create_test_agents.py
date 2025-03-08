@@ -23,12 +23,12 @@ def lambda_handler(event, context):
             # Create agents
             result = session.run("""
             CREATE (a1:Agent {
-                system_message: "You are a pharmacist.",
-                user_message: "Explain Amoxicillin."
+                system_message: "You are a psychiatrist.",
+                user_message: "Explain bipolar disorder."
             })
             CREATE (a2:Agent {
                 system_message: "You are an accuracy checker.",
-                user_message: "Verify the correctness of the pharmacist's explanation."
+                user_message: "Verify the correctness of the psychiatrist's explanation."
             })
             CREATE (a3:Agent {
                 system_message: "You are an evaluator.",

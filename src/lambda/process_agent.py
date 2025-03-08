@@ -31,12 +31,15 @@ def lambda_handler(event, context):
 
         # Construct the messages for the LLM
         messages = [
-            {'role': 'system', 'content': system_message},
-            {'role': 'user', 'content': user_message}
+            {'role': 'system', 'content': system_message}
         ]
 
+        # If there's a previous response, include it in the user message for context
         if prev_response:
-            messages.append({'role': 'assistant', 'content': prev_response})
+            full_user_message = f"Previous response:\n{prev_response}\n\nYour task: {user_message}"
+            messages.append({'role': 'user', 'content': full_user_message})
+        else:
+            messages.append({'role': 'user', 'content': user_message})
 
         logger.info(f"Constructed messages: {json.dumps(messages)}")
 
