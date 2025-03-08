@@ -109,6 +109,217 @@ GenFlow is an innovative pilot project that combines the power of graph database
    - Educational content adaptation
    - Performance evaluation
 
+## 🎯 Example: Multi-Agent Mental Health Assessment
+
+Here's a real example of a three-agent workflow for mental health assessment:
+
+### Agent Configuration
+
+```cypher
+CREATE (a1:Agent {
+    system_message: "You are a psychiatrist.",
+    user_message: "Explain bipolar disorder."
+})
+CREATE (a2:Agent {
+    system_message: "You are an accuracy checker.",
+    user_message: "Verify the correctness of the psychiatrist's explanation."
+})
+CREATE (a3:Agent {
+    system_message: "You are an evaluator.",
+    user_message: "Assess the accuracy checker's feedback and determine its validity and relevance."
+})
+CREATE (a1)-[:NEXT_AGENT]->(a2)
+CREATE (a2)-[:NEXT_AGENT]->(a3)
+```
+
+### Agent Interactions
+
+#### 1. Psychiatrist's Explanation
+```
+Bipolar disorder is a complex mental health condition characterized by significant mood swings that include emotional highs (mania or hypomania) and lows (depression). As a psychiatrist, let me break down the key aspects:
+
+Types:
+1. Bipolar I Disorder: Characterized by at least one manic episode, which may be preceded or followed by hypomanic or major depressive episodes.
+2. Bipolar II Disorder: Characterized by a pattern of depressive episodes and hypomanic episodes, but no full-blown manic episodes.
+3. Cyclothymic Disorder: A milder form with chronic fluctuating mood disturbances.
+
+Symptoms:
+Manic Episode:
+- Increased energy, activity, and agitation
+- Euphoria or extreme irritability
+- Decreased need for sleep
+- Racing thoughts and rapid speech
+- Poor judgment and risky behavior
+- Inflated self-esteem or grandiosity
+
+Depressive Episode:
+- Persistent sadness or hopelessness
+- Loss of interest in activities
+- Changes in sleep and appetite
+- Fatigue and low energy
+- Difficulty concentrating
+- Thoughts of death or suicide
+
+Causes:
+The exact cause isn't fully understood, but several factors contribute:
+- Genetic factors (hereditary component)
+- Brain structure and functioning
+- Environmental triggers
+- Stress and trauma
+- Substance use
+
+Diagnosis:
+Diagnosis requires a comprehensive psychiatric evaluation, including:
+- Detailed medical and family history
+- Physical examination
+- Mental status examination
+- Mood charting
+- Ruling out other medical conditions
+
+Treatment:
+Treatment typically involves a combination approach:
+1. Medications:
+   - Mood stabilizers (e.g., lithium)
+   - Antipsychotics
+   - Antidepressants (used cautiously)
+
+2. Psychotherapy:
+   - Cognitive Behavioral Therapy (CBT)
+   - Interpersonal and Social Rhythm Therapy (IPSRT)
+   - Family-focused therapy
+
+3. Lifestyle Management:
+   - Regular sleep schedule
+   - Stress management
+   - Avoiding alcohol and drugs
+   - Maintaining routine
+   - Exercise and healthy diet
+
+Prognosis:
+With proper treatment and management:
+- Many people with bipolar disorder lead fulfilling lives
+- Early intervention improves outcomes
+- Medication adherence is crucial
+- Regular monitoring helps prevent relapses
+- Support systems play a vital role
+
+Important Notes:
+- Bipolar disorder is a lifelong condition requiring ongoing management
+- Treatment plans should be individualized
+- Regular follow-up with healthcare providers is essential
+- Crisis planning is important
+- Support from family and friends is valuable
+
+Remember, bipolar disorder is a serious but treatable condition. With proper diagnosis, treatment, and support, individuals can manage their symptoms and maintain stability in their lives.
+```
+
+#### 2. Accuracy Checker's Verification
+```
+I've thoroughly reviewed the psychiatrist's explanation of bipolar disorder, and I can confirm that it is highly accurate and comprehensive. Let me verify each major component:
+
+Verification of Key Components:
+
+1. Types of Bipolar Disorder:
+✓ Correctly identified the three main types
+✓ Accurate descriptions of Bipolar I, II, and Cyclothymic Disorder
+✓ Proper distinction between mania, hypomania, and depression
+
+2. Symptoms:
+✓ Accurate description of manic and depressive episodes
+✓ Complete list of key symptoms for each phase
+✓ Clinically accurate terminology
+
+3. Causes:
+✓ Accurate representation of the multifactorial nature
+✓ Properly emphasizes that exact cause is not fully understood
+✓ Correct inclusion of genetic and environmental factors
+
+4. Diagnosis:
+✓ Accurate description of diagnostic process
+✓ Proper emphasis on comprehensive evaluation
+✓ Correct inclusion of differential diagnosis
+
+5. Treatment:
+✓ Accurate representation of multimodal approach
+✓ Correct medication categories
+✓ Evidence-based psychotherapy options
+✓ Appropriate lifestyle management strategies
+
+6. Prognosis:
+✓ Accurate representation of outcomes
+✓ Proper emphasis on treatment adherence
+✓ Correct focus on long-term management
+
+Additional Notes:
+1. The explanation appropriately emphasizes the chronic nature of the condition
+2. The information about psychotic symptoms in Bipolar I could be expanded
+3. The cautious approach to antidepressants is clinically appropriate
+4. The emphasis on individualized treatment is consistent with current guidelines
+
+The explanation aligns with:
+- Current DSM-5 criteria
+- Evidence-based treatment guidelines
+- Clinical best practices
+- Current research findings
+
+Overall Assessment:
+The psychiatrist's explanation is medically accurate, well-structured, and provides a comprehensive overview of bipolar disorder suitable for patient education and understanding.
+```
+
+#### 3. Evaluator's Assessment
+```
+The accuracy checker's feedback is **valid, relevant, and highly accurate**. Below is an assessment of the feedback's strengths and areas where it could be further refined or expanded:
+
+### Strengths of the Feedback
+
+1. **Comprehensive Coverage**:
+   - The feedback thoroughly addresses all major aspects of bipolar disorder, including its types, symptoms, causes, diagnosis, treatment, and prognosis. This aligns with the psychiatrist's explanation and ensures no critical details are overlooked.
+
+2. **Accuracy**:
+   - The feedback correctly verifies the psychiatrist's explanation, confirming that the information provided is consistent with current diagnostic criteria (e.g., DSM-5) and clinical understanding of bipolar disorder.
+
+3. **Additional Notes**:
+   - The inclusion of "Additional Notes" enhances the feedback by providing supplementary information that clarifies or expands on the psychiatrist's points. For example, the note about psychotic symptoms in Bipolar I and the cautious use of antidepressants adds depth to the explanation.
+
+4. **Structure and Clarity**:
+   - The feedback is well-organized, with clear headings and subheadings that make it easy to follow. This structure mirrors the psychiatrist's explanation, ensuring a logical flow of information.
+
+5. **Evidence-Based**:
+   - The feedback references evidence-based practices, such as the use of specific psychotherapies (CBT, IPSRT) and medications (lithium, antipsychotics), which strengthens its credibility.
+
+6. **Balanced Perspective**:
+   - The feedback acknowledges the complexity of bipolar disorder, including the interplay of genetic, biological, and environmental factors, as well as the importance of early intervention and adherence to treatment.
+
+### Areas for Improvement or Expansion
+
+1. **Cultural and Individual Variability**:
+   - While the feedback is thorough, it could briefly mention how cultural factors or individual differences might influence the presentation, diagnosis, or treatment of bipolar disorder. For example, stigma in certain cultures may delay seeking help.
+
+2. **Comorbidity**:
+   - The feedback could highlight common comorbid conditions (e.g., anxiety disorders, substance use disorders) that often accompany bipolar disorder and how they might complicate diagnosis and treatment.
+
+3. **Emerging Treatments**:
+   - While the feedback covers standard treatments, it could briefly mention emerging or alternative therapies (e.g., ketamine for treatment-resistant depression, transcranial magnetic stimulation) to provide a more forward-looking perspective.
+
+4. **Patient-Centered Care**:
+   - The feedback could emphasize the importance of tailoring treatment plans to individual needs, preferences, and circumstances, as bipolar disorder manifests differently in each person.
+
+5. **Myths and Misconceptions**:
+   - A brief section addressing common myths or misconceptions about bipolar disorder (e.g., "It's just mood swings") could enhance the educational value of the feedback.
+
+### Overall Assessment
+The accuracy checker's feedback is **excellent** in terms of validity, relevance, and thoroughness. It effectively verifies the psychiatrist's explanation while adding valuable context and detail. With minor additions (e.g., cultural considerations, comorbidity, emerging treatments), the feedback could become even more comprehensive and informative.
+
+If further refinement is desired, the feedback could incorporate the suggested improvements to address a broader range of perspectives and considerations related to bipolar disorder.
+```
+
+This example demonstrates how GenFlow enables:
+- Complex multi-agent interactions
+- Thorough information verification
+- Detailed quality assessment
+- Constructive feedback loops
+- Continuous improvement suggestions
+
 ## 📈 Future Enhancements
 
 1. **Graph Analytics**
