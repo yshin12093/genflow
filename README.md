@@ -53,7 +53,7 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 ## 🎯 Example: Multi-Agent Medical Accuracy Assessment
 
-Here's anexample of a three-agent workflow for medical accuracy assessment:
+Here's a realexample of a three-agent workflow for medical accuracy assessment:
 
 ### Workflow Visualization
 
