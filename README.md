@@ -113,6 +113,10 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 Here's a real example of a three-agent workflow for mental health assessment:
 
+### Workflow Visualization
+
+![Three Agent Workflow](docs/images/three-agent-example.png)
+
 ### Agent Configuration
 
 ```cypher
