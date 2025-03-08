@@ -1,0 +1,175 @@
+{
+  "Comment": "Agent workflow state machine",
+  "StartAt": "GetAgentMessages",
+  "States": {
+    "GetAgentMessages": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "genflow-get-agent-messages",
+        "Payload": {
+          "node_id.$": "$.node_id"
+        }
+      },
+      "ResultPath": "$.agent_data",
+      "Next": "ParseAgentMessages",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "HandleError"
+        }
+      ]
+    },
+    "ParseAgentMessages": {
+      "Type": "Pass",
+      "Parameters": {
+        "node_id.$": "$.node_id",
+        "prev_response.$": "$.prev_response",
+        "agent_data": {
+          "statusCode.$": "$.agent_data.Payload.statusCode",
+          "body.$": "States.StringToJson($.agent_data.Payload.body)"
+        }
+      },
+      "Next": "CheckAgentMessages"
+    },
+    "CheckAgentMessages": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.agent_data.statusCode",
+          "NumericEquals": 404,
+          "Next": "HandleError"
+        },
+        {
+          "Variable": "$.agent_data.statusCode",
+          "NumericEquals": 500,
+          "Next": "HandleError"
+        }
+      ],
+      "Default": "ProcessAgent"
+    },
+    "ProcessAgent": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "genflow-process-agent",
+        "Payload": {
+          "node_id.$": "$.node_id",
+          "agent_data.$": "$.agent_data.body",
+          "prev_response.$": "$.prev_response"
+        }
+      },
+      "ResultPath": "$.process_result",
+      "Next": "ParseProcessResult",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "HandleError"
+        }
+      ]
+    },
+    "ParseProcessResult": {
+      "Type": "Pass",
+      "Parameters": {
+        "node_id.$": "$.node_id",
+        "prev_response.$": "$.prev_response",
+        "agent_data.$": "$.agent_data",
+        "process_result": {
+          "statusCode.$": "$.process_result.Payload.statusCode",
+          "body.$": "States.StringToJson($.process_result.Payload.body)"
+        }
+      },
+      "Next": "CheckProcessResult"
+    },
+    "CheckProcessResult": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.process_result.statusCode",
+          "NumericEquals": 500,
+          "Next": "HandleError"
+        },
+        {
+          "Variable": "$.process_result.statusCode",
+          "NumericEquals": 400,
+          "Next": "HandleError"
+        }
+      ],
+      "Default": "GetNextAgent"
+    },
+    "GetNextAgent": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "genflow-get-next-agent",
+        "Payload": {
+          "node_id.$": "$.node_id"
+        }
+      },
+      "ResultPath": "$.next_agent",
+      "Next": "ParseNextAgent",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "HandleError"
+        }
+      ]
+    },
+    "ParseNextAgent": {
+      "Type": "Pass",
+      "Parameters": {
+        "node_id.$": "$.node_id",
+        "prev_response.$": "$.prev_response",
+        "agent_data.$": "$.agent_data",
+        "process_result.$": "$.process_result",
+        "next_agent": {
+          "statusCode.$": "$.next_agent.Payload.statusCode",
+          "body.$": "States.StringToJson($.next_agent.Payload.body)"
+        }
+      },
+      "Next": "CheckNextAgent"
+    },
+    "CheckNextAgent": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.next_agent.statusCode",
+          "NumericEquals": 404,
+          "Next": "Success"
+        },
+        {
+          "Variable": "$.next_agent.statusCode",
+          "NumericEquals": 500,
+          "Next": "HandleError"
+        }
+      ],
+      "Default": "PrepareNextIteration"
+    },
+    "PrepareNextIteration": {
+      "Type": "Pass",
+      "Parameters": {
+        "node_id.$": "$.next_agent.body.next_agent_id",
+        "prev_response.$": "$.process_result.body.response"
+      },
+      "Next": "GetAgentMessages"
+    },
+    "HandleError": {
+      "Type": "Pass",
+      "End": true,
+      "Parameters": {
+        "error": "An error occurred during execution"
+      }
+    },
+    "Success": {
+      "Type": "Pass",
+      "End": true,
+      "Parameters": {
+        "result": "Workflow completed successfully",
+        "final_response.$": "$.process_result.body.response"
+      }
+    }
+  }
+}
