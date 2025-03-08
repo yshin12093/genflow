@@ -59,9 +59,10 @@ Here's an example of a three-agent workflow for medical accuracy assessment:
 
 ![Three Agent Workflow](/assets/images/three-agent-example.png)
 
-### Agent Configuration (neo4j)
+### Agent Workflow Configuration (neo4j)
 
 ```cypher
+// Agent creation
 CREATE (a1:Agent {
     system_message: "You are a psychiatrist.",
     user_message: "Explain bipolar disorder."
@@ -74,6 +75,8 @@ CREATE (a3:Agent {
     system_message: "You are an evaluator.",
     user_message: "Assess the accuracy checker's feedback and determine its validity and relevance."
 })
+
+// Three-agent workflow configuration
 CREATE (a1)-[:NEXT_AGENT]->(a2)
 CREATE (a2)-[:NEXT_AGENT]->(a3)
 ```
