@@ -28,23 +28,6 @@ GenFlow is an innovative pilot project that combines the power of graph database
 - **Flexible Routing**: Change agent interaction patterns by updating graph relationships
 - **Version Control**: Track workflow evolution through graph versioning
 
-## 🏗️ Architecture
-
-```
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│   AWS Step  │     │  AWS Lambda  │     │    Neo4j    │
-│  Functions  │────▶│   Functions  │◀───▶│   Database  │
-└─────────────┘     └──────────────┘     └─────────────┘
-       │                    │                    │
-       │                    │                    │
-       └──────────────────▶│◀───────────────────┘
-                          │
-                    ┌──────────────┐
-                    │     LLM      │
-                    │    Service   │
-                    └──────────────┘
-```
-
 ## 💡 Benefits
 
 ### Technical Benefits
@@ -70,25 +53,41 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 ## 🚀 Use Cases
 
-1. **Complex Decision Making**
-   - Multi-step evaluation processes
-   - Hierarchical approval workflows
-   - Expert system simulations
+1. **Medical Diagnosis Workflows**
+   - Multi-specialist consultation and diagnosis
+   - Radiology image analysis with expert verification
+   - Complex case review and second opinion workflows
+   - Emergency response triage and specialist routing
 
-2. **Content Generation**
-   - Multi-stage content creation and review
-   - Collaborative writing workflows
-   - Content verification and fact-checking
+2. **Treatment Planning**
+   - Multi-disciplinary treatment plan development
+   - Drug interaction analysis and verification
+   - Treatment effectiveness monitoring
+   - Patient risk assessment and mitigation
 
-3. **Knowledge Processing**
-   - Information extraction and verification
-   - Research assistance
-   - Data analysis pipelines
+3. **Mental Health Assessment**
+   - Multi-stage psychiatric evaluation
+   - Therapy session analysis and supervision
+   - Crisis intervention workflows
+   - Treatment progress monitoring and adjustment
 
-4. **Customer Service**
-   - Escalation workflows
-   - Multi-specialist support routing
-   - Quality assurance processes
+4. **Clinical Trial Management**
+   - Patient eligibility assessment
+   - Adverse event analysis and reporting
+   - Protocol compliance verification
+   - Data quality control and validation
+
+5. **Healthcare Documentation**
+   - Medical record summarization and verification
+   - Clinical note generation and review
+   - Insurance claim documentation
+   - Regulatory compliance checking
+
+6. **Patient Care Coordination**
+   - Care team communication and handoffs
+   - Discharge planning and follow-up
+   - Specialist referral management
+   - Emergency care escalation protocols
 
 ## 📈 Future Enhancements
 
@@ -129,17 +128,6 @@ GenFlow is an innovative pilot project that combines the power of graph database
    - Create agents in Neo4j
    - Deploy Lambda functions
    - Start Step Functions execution
-
-## 📚 Documentation
-
-- [Setup Guide](docs/setup.md)
-- [Architecture Details](docs/architecture.md)
-- [API Reference](docs/api.md)
-- [Best Practices](docs/best-practices.md)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
