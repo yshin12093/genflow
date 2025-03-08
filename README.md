@@ -6,7 +6,7 @@ GenFlow is an innovative pilot project that combines the power of graph database
 
 ### Graph-Based Agent Architecture
 - **Dynamic Agent Relationships**: Agents and their relationships are stored in Neo4j, enabling complex, flexible workflows
-- **Real-Time Adaptability**: Modify agent behaviors and workflows by updating the graph without changing the underlying infrastructure
+- **Real-Time Adaptability**: Modify agent behaviors and workflows by updating the graph without changing the underlying infrastructure, with the potential for automating graph changes using large language models
 - **Rich Relationship Modeling**: Leverage Neo4j's graph capabilities to model complex agent interactions and dependencies
 - **Easy Workflow Visualization**: Naturally visualize agent workflows using Neo4j's built-in visualization tools
 
