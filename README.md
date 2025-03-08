@@ -51,9 +51,9 @@ GenFlow is an innovative pilot project that combines the power of graph database
 - **Easy Debugging**: Trace agent interactions through the graph structure
 - **Collaborative Development**: Multiple teams can work on different parts of the workflow
 
-## 🎯 Example: Multi-Agent Mental Health Assessment
+## 🎯 Example: Multi-Agent Medical Accuracy Assessment
 
-Here's a real example of a three-agent workflow for mental health assessment:
+Here's anexample of a three-agent workflow for medical accuracy assessment:
 
 ### Workflow Visualization
 
