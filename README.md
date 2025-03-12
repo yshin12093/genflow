@@ -1,4 +1,4 @@
-# GenFlow: Graph-Based Adaptive Multi-Agent LLM Workflows
+# GenFlow: Graph-Based Adaptive Multi-Agent LLM (Large Language Model) Workflows
 
 GenFlow is a proof-of-concept project that combines the power of graph databases (Neo4j) with serverless computing (AWS Lambda) and workflow orchestration (AWS Step Functions) to create SCALABLE, ROBUST, and ADAPTIVE multi-agent LLM workflows.
 
