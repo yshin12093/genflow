@@ -366,6 +366,10 @@ If further refinement is desired, the feedback could incorporate the suggested i
    - Deploy Lambda functions
    - Start Step Functions execution
 
+## Author
+
+- **YJ Shin** - Project creator and maintainer
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
