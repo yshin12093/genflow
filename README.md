@@ -54,10 +54,11 @@ GenFlow is a proof-of-concept project that combines the power of graph databases
 - **Collaborative Development**: Multiple teams can work on different parts of the workflow
 
 ## Future Work
-- **Enhanced Tool Utilization**: Expanding agent capabilities by integrating with **S3, SNS, SQS, Knowledge Base (RAG)**, and other AWS or external services for more **dynamic and intelligent workflows**.
+- **Enhanced Tool Utilization**: Expanding agent capabilities by integrating with **S3, SNS, SQS, Knowledge Base (RAG)**, and other AWS or external services for more **dynamic and intelligent workflows**. The portable way to expose those capabilities is **MCP (Model Context Protocol)** — see [MCP vs RL](docs/mcp-vs-rl.md).
 - **Context & Memory Optimization**: Implementing **efficient state management** techniques to optimize **context retention** across workflows.
 - **Parallel & Hierarchical Processing**: Introducing **multi-level execution strategies** where agents operate in **parallel or hierarchical configurations**, optimizing performance for **large-scale workflows**.
 - **Automated Graph Updates**: Further exploration into **LLM-driven workflow optimization**, including **real-time agent orchestration** and **automated relationship modifications**.
+- **Learned Policies (RL)**: Optional **reinforcement learning / RFT** on logged trajectories (evaluator scores, task success, cost) to improve routing, tool choice, and agent behavior. MCP and RL are complementary layers, not alternatives — [comparison](docs/mcp-vs-rl.md).
 
 ## Example: Multi-Agent Medical Accuracy Assessment
 
@@ -342,6 +343,7 @@ If further refinement is desired, the feedback could incorporate the suggested i
    - Automated workflow optimization
    - Agent behavior learning
    - Performance prediction
+   - See [MCP vs RL](docs/mcp-vs-rl.md) for how tool access (MCP) and learned policies (RL) fit this architecture
 
 ## Getting Started
 
